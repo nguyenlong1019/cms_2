@@ -1,0 +1,65 @@
+.app {
+    font-family: "Nunito", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    .container {
+        width: 1140px;
+        margin: 0 auto;
+    }
+
+    /* Container to cover the entire screen */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #007bff; /* Blue background */
+  }
+  
+  /* Styling for the registration form */
+  .register-form {
+    background-color: #fff; /* White background */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
+    width: 400px;
+  }
+  
+  /* Form group for spacing between labels and inputs */
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Styling for the register button */
+  .register-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .register-btn:hover {
+    background-color: #0056b3;
+  }
+  
+}
