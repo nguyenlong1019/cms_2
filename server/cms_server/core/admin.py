@@ -6,6 +6,11 @@ from core.models.program import *
 from core.models.semester import * 
 from core.models.subject import * 
 from core.models.student import * 
+from core.models.school_year import * 
+from core.models.career import * 
+from core.models.training_type import * 
+from core.models.training_sys import *
+from core.models.subject_type import * 
 
 
 @admin.register(Province)
@@ -40,4 +45,29 @@ class SubjectAdmin(admin.ModelAdmin):
 
 @admin.register(Student)
 class StudentAdmin(admin.ModelAdmin):
+    search_fields = ['id',]
+
+
+@admin.register(SchoolYear)
+class SchoolYearAdmin(admin.ModelAdmin):
+    search_fields = ['id',]
+
+
+@admin.register(Career)
+class CareerAdmin(admin.ModelAdmin):
+    search_fields = ['id',]
+
+
+@admin.register(TrainingType)
+class TrainingTypeAdmin(admin.ModelAdmin):
+    search_fields = ['id',]
+
+
+@admin.register(TrainingSys)
+class TrainingSysAdmin(admin.ModelAdmin):
+    search_fields = ['id',]
+
+
+@admin.register(SubjectType)
+class SubjectTypeAdmin(admin.ModelAdmin):
     search_fields = ['id',]
