@@ -5,6 +5,10 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Footer from './components/Footer';
 import Account from './pages/Account';
+import Student from './pages/Student';
+import ExamSchedule from './pages/ExamSchedule';
+import RegisterSubject from './pages/RegisterSubject';
+import Schedule from './pages/Schedule';
 import './style.scss';
 
 const Layout = () => {
@@ -23,11 +27,27 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <Student />,
       },
       {
         path: "/account",
         element: <Account />,
+      },
+      {
+        path: "/students",
+        element: <Student />,
+      },
+      {
+        path: "/exam-schedule",
+        element: <ExamSchedule />,
+      },
+      {
+        path: "/register-subject",
+        element: <RegisterSubject />,
+      },
+      {
+        path: "/schedule",
+        element: <Schedule />,
       },
     ],
   },

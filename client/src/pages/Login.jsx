@@ -30,7 +30,7 @@ const Login = () => {
                 <button type="submit" class="btn btn-primary btn-block mt-3">Đăng nhập</button>
               </form>
               <div class="text-center mt-3">
-                        <p>Bạn không có tài khoản? <a href="#">Đăng ký</a></p>
+                        <p>Bạn không có tài khoản? <a href="/register">Đăng ký</a></p>
               </div>
             </div>
           </div>

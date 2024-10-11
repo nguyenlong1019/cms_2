@@ -65,7 +65,7 @@ const Register = () => {
                             <button type="submit" className="btn btn-primary btn-block mt-3">Đăng ký</button>
                         </form>
                         <div className="text-center mt-3">
-                            <p>Bạn đã có tài khoản? <a href="#">Đăng nhập</a></p>
+                            <p>Bạn đã có tài khoản? <a href="/login">Đăng nhập</a></p>
                         </div>
                     </div>
                 </div>
