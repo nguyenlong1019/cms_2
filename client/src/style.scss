@@ -62,4 +62,70 @@
     background-color: #0056b3;
   }
   
+  .login {
+    // background: url('./images/background-image.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+
+    .login-form {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      color: black;
+      margin-top: 20px;
+    }
+    .banner {
+        text-align: center;
+        padding: 20px;
+        background: rgba(0, 123, 255, 0.8);
+        color: white;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+    .banner h1 {
+        font-size: 24px;
+        letter-spacing: 1px;
+        margin-bottom: 0;
+    }
+    .banner h2 {
+        font-size: 18px;
+    }
+    .form-title {
+        color: #007bff; /* Màu xanh cho tiêu đề */
+    }
+  }
+
+  .register {
+    color: white;
+
+    .registration-form {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      color: black;
+      margin-top: 20px;
+      margin-bottom: 40px; /* Thêm khoảng cách phía dưới */
+  }
+  .banner {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 123, 255, 0.8);
+      color: white;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      margin-top: 40px;
+  }
+  .banner h1 {
+      font-size: 24px;
+      letter-spacing: 1px;
+      margin-bottom: 0;
+  }
+  .banner h2 {
+      font-size: 18px;
+  }
+  .form-title {
+      color: #007bff; /* Màu xanh cho tiêu đề */
+  }
+  }
+
 }
