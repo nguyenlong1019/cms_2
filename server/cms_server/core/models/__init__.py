@@ -1,3 +1,4 @@
+from .custom_user import *
 from .classroom import * 
 from .major import * 
 from .province import * 
