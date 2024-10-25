@@ -1,63 +1,47 @@
 import React from 'react';
 import {createBrowserRouter, RouterProvider, Outlet} from 'react-router-dom';
-import Register from './pages/Register';
-import Login from './pages/Login';
 import Home from './pages/Home';
-import Footer from './components/Footer';
-import Account from './pages/Account';
-import Student from './pages/Student';
-import ExamSchedule from './pages/ExamSchedule';
-import RegisterSubject from './pages/RegisterSubject';
-import Schedule from './pages/Schedule';
+import LayoutStaff from './pages/LayoutStaff';
 import './style.scss';
-
-const Layout = () => {
-  return (
-    <>
-      <Outlet />
-      <Footer />
-    </>
-  );
-};
+import LayoutManager from './pages/LayoutManager';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />,
+    element: <Home />,
+  },
+  {
+    path: '/staff',
+    element: <LayoutStaff />,
     children: [
       {
-        path: "/",
-        element: <Student />,
+        path: "",
+        element: <Outlet />,
       },
       {
-        path: "/account",
-        element: <Account />,
+        path: "timetables",
+        element: <Outlet />,
       },
       {
-        path: "/students",
-        element: <Student />,
-      },
-      {
-        path: "/exam-schedule",
-        element: <ExamSchedule />,
-      },
-      {
-        path: "/register-subject",
-        element: <RegisterSubject />,
-      },
-      {
-        path: "/schedule",
-        element: <Schedule />,
+        path: "attendance_history",
+        element: <Outlet />,
       },
     ],
   },
   {
-    path: '/register',
-    element: <Register />,
+    path: '/manager',
+    element: <LayoutManager />,
+    children: [
+
+    ],
   },
   {
-    path: '/login',
-    element: <Login />,
+    path: '/staff/login',
+    element: <Outlet />,
+  },
+  {
+    path: '/manager/login',
+    element: <Outlet />,
   },
 ]);
 
