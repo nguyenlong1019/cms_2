@@ -1,0 +1,28 @@
+Quản lý người dùng, phân quyền Admin, Staff 
+Đăng nhập, đăng xuất 
+
+Staff: Login, Logout, 
+Xem thời khóa biểu giảng dạy
+Xem lịch sử phòng học 
+
+
+
+Admin (Manager)
+Xem thời khóa biểu học kỳ, xem lịch thi học kỳ 
+Xem danh sách sinh viên
+Xuất danh sách sinh viên 
+Xem Danh sách đăng ký môn học của một sinh viên 
+Xem danh sách học phần và sĩ số 
+Xem lịch sử phòng học 
+Xem kết quả học tập của một sinh viên 
+Quản lý điểm học phần 
+
+Thuật toán chính: 
+Lấy tập dữ liệu từ database ở bảng lịch thi để xử lý vấn đề lịch thi . 
+Nhấn vào chọn học kì và năm học để load hết các lớp học của kỳ học đó với thông tin như hình . 
+Chọn vào lớp học phần có thể xuất ra được cái danh sách sv lớp đó , 
+và tạo thêm một cột tích chọn lớp để xuất ra file tất cả các lớp có lịch thi trong kỳ học năm học đã chọn
+
+
+Xác nhận nộp bản giấy 
+Xuất danh sách học phần chưa nộp bản giấy
