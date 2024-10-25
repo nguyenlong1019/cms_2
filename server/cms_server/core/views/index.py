@@ -5,6 +5,8 @@ from django.views.decorators.csrf import csrf_exempt
 import jwt 
 from django.http import JsonResponse 
 from django.conf import settings 
+from django.contrib.auth import get_user_model 
+import json 
 
 
 def index(request):
@@ -14,18 +16,23 @@ def index(request):
 @csrf_exempt 
 def login_view(request):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+        data = json.loads(request.body)
+        username = data.get('username')
+        password = data.get('password')
+        # print(username)
+        # print(password)
 
-        # try:
-        #     user = CustomUser.objects.get(username=username)
-        # except CustomUser.DoesNotExist:
-        #     return JsonResponse({
-        #         'message': 'Tên tài khoản không tồn tại',
-        #     }, status=404)
+        UserModel = get_user_model()
+        print(UserModel)
+
+        try:
+            user = UserModel.objects.get(username=username)
+        except UserModel.DoesNotExist:
+            return JsonResponse({
+                'message': 'Tên tài khoản không tồn tại',
+            }, status=404)
         
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
+        if user.check_password(password):
             token_payload = {
                 "id": user.id,
                 "role": "manager" if user.role == "manager" else "staff"
@@ -36,11 +43,11 @@ def login_view(request):
                 "email": user.email if user.email else '',
                 "username": username,
                 "role": user.role
-            })
+            }, status=200)
             response.set_cookie("access_token", token, httponly=True)
             return response 
         else:
-            return JsonResponse({'message': "Tên tài khoản hoặc mật khẩu không đúng!"})
+            return JsonResponse({'message': "Mật khẩu không đúng!"}, status=400)
 
 
 @csrf_exempt 
