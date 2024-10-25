@@ -8,6 +8,7 @@ import StaffLogin from './pages/StaffLogin';
 import ManagerLogin from './pages/ManagerLogin';
 import StaffDashboard from './pages/staff/StaffDashboard';
 import ManagerDashboard from './pages/manager/ManagerDashboard' 
+import LoginRequire from './pages/staff/LoginRequire';
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,9 @@ const router = createBrowserRouter([
   },
   {
     path: '/staff',
-    element: <LayoutStaff />,
+    element: <LoginRequire>
+      <LayoutStaff />
+    </LoginRequire>,
     children: [
       {
         path: "",
@@ -34,7 +37,9 @@ const router = createBrowserRouter([
   },
   {
     path: '/manager',
-    element: <LayoutManager />,
+    element: <LoginRequire>
+      <LayoutManager />
+    </LoginRequire>,
     children: [
       {
         path: "",

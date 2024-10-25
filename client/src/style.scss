@@ -42,5 +42,54 @@ $primary-font: "Open Sans", serif;
       }
     }
 
+    .common-layout {
+      display: flex;
 
+      .sidebar {
+        width: 250px;
+        background-color: #fff;
+        color: #333;
+        padding: 10px;
+        height: 100vh;
+        box-sizing: border-box;
+
+        ul {
+          list-style: none;
+          padding: 0;
+          display: block;
+
+          li {
+            margin-bottom: 10px;
+            display: block;
+            padding: 12px;
+
+            &.active {
+              box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+              border-radius: 4px;
+
+              a {
+                i {
+                  background-color: #006BFF;
+                  color: white;
+                }
+              }
+            }
+
+            a {
+              color: #333;
+              text-decoration: none;
+              display: inline-block;
+
+              i {
+                font-size: 18px;
+                margin-right: 8px;
+                padding: 4px;
+                border-radius: 4px;
+                color: #006BFF;
+              }
+            }
+          }
+        }
+      }
+    }
 }

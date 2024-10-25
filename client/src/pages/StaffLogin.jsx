@@ -26,7 +26,7 @@ const StaffLogin = () => {
             navigate("/staff");
         } catch (err) {
             console.error(err);
-            setError(err);
+            setError(err?.response?.data?.message);
         }
     };
 

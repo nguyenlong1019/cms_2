@@ -7,6 +7,7 @@ const LayoutStaff = () => {
     const {currentUser, logout} = useContext(AuthContext);
     const location = useLocation();
 
+    
 
 
   return (
@@ -19,7 +20,7 @@ const LayoutStaff = () => {
                         admin
                     </Link>
                 </li>
-                <li>
+                <li className='active'>
                     <Link>
                         <i class="fa-solid fa-gauge"></i>
                         Dashboard 

@@ -1,0 +1,6 @@
+Trang chủ gồm 2 phần
+Đăng nhập cho cán bộ nhân viên 
+Đăng nhập cho quản lý 
+2 phần đăng nhập này xử lý khác nhau cho từng phần nhưng cùng gọi đến 1 API nhưng set cookie khác nhau 
+
+Done base (còn thiếu xử lý authenticated, login require admin and content)
