@@ -17,12 +17,12 @@ def login_view(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        try:
-            user = CustomUser.objects.get(username=username)
-        except CustomUser.DoesNotExist:
-            return JsonResponse({
-                'message': 'Tên tài khoản không tồn tại',
-            }, status=404)
+        # try:
+        #     user = CustomUser.objects.get(username=username)
+        # except CustomUser.DoesNotExist:
+        #     return JsonResponse({
+        #         'message': 'Tên tài khoản không tồn tại',
+        #     }, status=404)
         
         user = authenticate(request, username=username, password=password)
         if user is not None:
@@ -33,11 +33,19 @@ def login_view(request):
             token = jwt.encode(token_payload, settings.JWT_SECRET_KEY, settings.JWT_ALGORITHM)
 
             response = JsonResponse({
-                "message": "Login successfully",
+                "email": user.email if user.email else '',
                 "username": username,
                 "role": user.role
             })
             response.set_cookie("access_token", token, httponly=True)
             return response 
+        else:
+            return JsonResponse({'message': "Tên tài khoản hoặc mật khẩu không đúng!"})
 
 
+@csrf_exempt 
+def logout_view(request):
+    if request.method == 'POST':
+        response = JsonResponse({'message': "Đăng xuất thành công!"})
+        response.delete_cookie('access_token')
+        return response 
