@@ -1,133 +1,46 @@
 $primary-font: "Open Sans", serif;
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $primary-font;
+  color: #333;
+  background-color: #fff;
+}
+
 .app {
-    font-family: "Nunito", sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    height: 100vh;
 
     .container {
         width: 1140px;
         margin: 0 auto;
     }
 
-    /* Container to cover the entire screen */
-.register-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #007bff; /* Blue background */
-  }
-  
-  /* Styling for the registration form */
-  .register-form {
-    background-color: #fff; /* White background */
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow */
-    width: 400px;
-  }
-  
-  /* Form group for spacing between labels and inputs */
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 16px;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-  }
-  
-  /* Styling for the register button */
-  .register-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .register-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  .login {
-    // background: url('./images/background-image.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: white;
+    .intro {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-    .login-form {
-      background: rgba(255, 255, 255, 0.9);
-      padding: 20px;
-      border-radius: 10px;
-      color: black;
-      margin-top: 20px;
-    }
-    .banner {
-        text-align: center;
-        padding: 20px;
-        background: rgba(0, 123, 255, 0.8);
-        color: white;
-        border-radius: 10px;
-        margin-bottom: 20px;
-    }
-    .banner h1 {
-        font-size: 24px;
-        letter-spacing: 1px;
-        margin-bottom: 0;
-    }
-    .banner h2 {
-        font-size: 18px;
-    }
-    .form-title {
-        color: #007bff; /* Màu xanh cho tiêu đề */
-    }
-  }
+    .log-reg {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-  .register {
-    color: white;
+      .log-reg-wrapper {
+        padding: 36px 40px;
+        max-width: 530px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
 
-    .registration-form {
-      background: rgba(255, 255, 255, 0.9);
-      padding: 20px;
-      border-radius: 10px;
-      color: black;
-      margin-top: 20px;
-      margin-bottom: 40px; /* Thêm khoảng cách phía dưới */
-  }
-  .banner {
-      text-align: center;
-      padding: 20px;
-      background: rgba(0, 123, 255, 0.8);
-      color: white;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      margin-top: 40px;
-  }
-  .banner h1 {
-      font-size: 24px;
-      letter-spacing: 1px;
-      margin-bottom: 0;
-  }
-  .banner h2 {
-      font-size: 18px;
-  }
-  .form-title {
-      color: #007bff; /* Màu xanh cho tiêu đề */
-  }
-  }
+        h2 {
+          font-size: 28px;
+        }
+      }
+    }
+
 
 }

@@ -1,7 +1,14 @@
-import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link, Outlet, useLocation } from 'react-router-dom'
+import { AuthContext } from '../context/authContext'
+
 
 const LayoutStaff = () => {
+    const {currentUser, logout} = useContext(AuthContext);
+    const location = useLocation();
+
+
+
   return (
     <div className='common-layout'>
         <nav className='sidebar'>
@@ -29,7 +36,7 @@ const LayoutStaff = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link>Đăng xuất</Link>
+                    <Link onClick={logout}>Đăng xuất</Link>
                 </li>
             </ul>
         </nav>

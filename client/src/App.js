@@ -4,6 +4,10 @@ import Home from './pages/Home';
 import LayoutStaff from './pages/LayoutStaff';
 import './style.scss';
 import LayoutManager from './pages/LayoutManager';
+import StaffLogin from './pages/StaffLogin';
+import ManagerLogin from './pages/ManagerLogin';
+import StaffDashboard from './pages/staff/StaffDashboard';
+import ManagerDashboard from './pages/manager/ManagerDashboard' 
 
 const router = createBrowserRouter([
   {
@@ -16,7 +20,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
-        element: <Outlet />,
+        element: <StaffDashboard />,
       },
       {
         path: "timetables",
@@ -32,16 +36,19 @@ const router = createBrowserRouter([
     path: '/manager',
     element: <LayoutManager />,
     children: [
-
+      {
+        path: "",
+        element: <ManagerDashboard />,
+      },
     ],
   },
   {
     path: '/staff/login',
-    element: <Outlet />,
+    element: <StaffLogin />,
   },
   {
     path: '/manager/login',
-    element: <Outlet />,
+    element: <ManagerLogin />,
   },
 ]);
 
