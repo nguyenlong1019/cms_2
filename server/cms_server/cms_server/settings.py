@@ -147,3 +147,19 @@ JAZZMIN_SETTINGS = {
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'core.CustomUser'
+
+# Định dạng ngày
+DATE_FORMAT = 'd/m/Y'  # d: ngày, m: tháng, Y: năm (4 chữ số)
+
+# Định dạng khi nhập dữ liệu (form input format)
+DATE_INPUT_FORMATS = [
+    '%d/%m/%Y',  # Cho phép nhập ngày theo định dạng dd/MM/yyyy
+]
+
+# Định dạng datetime
+DATETIME_FORMAT = 'd/m/Y H:i:s'  # d: ngày, m: tháng, Y: năm, H: giờ (24h), i: phút, s: giây
+
+# Định dạng khi nhập datetime
+DATETIME_INPUT_FORMATS = [
+    '%d/%m/%Y %H:%M:%S',  # Cho phép nhập datetime theo định dạng dd/MM/yyyy HH:mm:ss
+]

@@ -10,6 +10,12 @@ class CustomUser(AbstractUser):
     role = models.CharField(max_length=15, default='staff', choices=ROLE)
 
 
+    class Meta:
+        verbose_name = 'Tài khoản'
+        verbose_name_plural = 'Tài khoản'
+        db_table = 'users'
+
+
     def __str__(self):
         return f"{self.id} - {self.username} - {self.role}"
     

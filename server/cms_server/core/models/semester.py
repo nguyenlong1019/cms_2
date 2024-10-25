@@ -1,7 +1,8 @@
 from django.db import models 
+from cms_server.utils import CommonAbstract
 
 
-class Semester(models.Model):
+class Semester(CommonAbstract):
     SEMESTER = (
         ('fall', 'Học kỳ 1'),
         ('spring', 'Học kỳ 2'),

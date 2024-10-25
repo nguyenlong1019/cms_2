@@ -1,11 +1,8 @@
 from django.db import models 
-from .province import Province 
-from .training_type import TrainingType 
-from .major import Major 
-from .classroom import Classroom 
+from cms_server.utils import CommonAbstract 
 
 
-class Student(models.Model):
+class Student(CommonAbstract):
     GENDER = (
         (1, 'Male'),
         (2, 'Female')
@@ -17,18 +14,8 @@ class Student(models.Model):
     firstname = models.CharField(max_length=20, verbose_name='Tên')
     gender = models.IntegerField(default=1, choices=GENDER, verbose_name='Giới tính')
     dob = models.DateField(null=True, blank=True, verbose_name='Ngày sinh')
-    pob = models.ForeignKey(Province, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Nơi sinh') # place of birth 
     phone = models.CharField(max_length=100, null=True, blank=True, verbose_name='Số điện thoại')
-    training_fac = models.CharField(max_length=255, verbose_name='Cơ sở đào tạo')
-    type = models.ForeignKey(TrainingType, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Loại hình đào tạo') # type of training 
-    course = models.CharField(max_length=255, verbose_name='Khóa học')
-    major = models.ForeignKey(Major, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Chuyên ngành')
-    classroom = models.ForeignKey(Classroom, on_delete=models.SET_NULL, null=True, blank=True, verbose_name='Lớp học')
     email = models.EmailField(max_length=100, unique=True, verbose_name='Email')
-    status = models.IntegerField(default=1, verbose_name='Trạng thái sinh viên')
-    # rank = models.CharField(max_length=255, verbose_name='')
-    acc = models.CharField(max_length=100, null=True, blank=True, verbose_name='Số tài khoản')
-    pwd = models.CharField(max_length=100, verbose_name='Mật khẩu đăng nhập')
 
 
     class Meta:
