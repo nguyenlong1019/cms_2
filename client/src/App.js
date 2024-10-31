@@ -9,6 +9,7 @@ import ManagerLogin from './pages/ManagerLogin';
 import StaffDashboard from './pages/staff/StaffDashboard';
 import ManagerDashboard from './pages/manager/ManagerDashboard' 
 import LoginRequire from './pages/staff/LoginRequire';
+import LoginRequireManager from './pages/manager/LoginRequireManager';
 
 const router = createBrowserRouter([
   {
@@ -37,9 +38,9 @@ const router = createBrowserRouter([
   },
   {
     path: '/manager',
-    element: <LoginRequire>
+    element: <LoginRequireManager>
       <LayoutManager />
-    </LoginRequire>,
+    </LoginRequireManager>,
     children: [
       {
         path: "",

@@ -7,6 +7,8 @@ const LayoutStaff = () => {
     const {currentUser, logout} = useContext(AuthContext);
     const location = useLocation();
 
+    // console.log(currentUser);
+    
     
 
 
@@ -16,28 +18,33 @@ const LayoutStaff = () => {
             <ul>
                 <li>
                     <Link>
-                        <i class="fa-solid fa-user"></i>
-                        admin
+                        <i className="fa-solid fa-user"></i>
+                        {currentUser.username} - {currentUser.role}
                     </Link>
                 </li>
                 <li className='active'>
                     <Link>
-                        <i class="fa-solid fa-gauge"></i>
+                        <i className="fa-solid fa-gauge"></i>
                         Dashboard 
                     </Link>
                 </li>
                 <li>
                     <Link>
+                        <i className="fa-solid fa-calendar-days"></i>
                         TKB Giảng dạy
                     </Link>
                 </li>
                 <li>
                     <Link>
+                        <i className="fa-solid fa-clock-rotate-left"></i>
                         Lịch sử phòng học 
                     </Link>
                 </li>
                 <li>
-                    <Link onClick={logout}>Đăng xuất</Link>
+                    <Link onClick={logout}>
+                        <i className="fa-solid fa-right-from-bracket"></i>
+                        Đăng xuất
+                    </Link>
                 </li>
             </ul>
         </nav>
