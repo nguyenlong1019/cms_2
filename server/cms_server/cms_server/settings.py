@@ -89,6 +89,22 @@ DATABASES = {
 }
 
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'mssql',
+#         'NAME': 'EDU_NUCE',
+#         'USER': 'sa',
+#         'PASSWORD': '66668888',
+#         'HOST': 'ADMIN-PC\\THANHTHU',
+#         'PORT': '',
+
+#         'OPTIONS': {
+#             'driver': 'ODBC Driver 17 for SQL Server',
+#         },
+#     },
+# }
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
