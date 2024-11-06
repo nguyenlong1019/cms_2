@@ -14,8 +14,11 @@ class Student(CommonAbstract):
     firstname = models.CharField(max_length=20, verbose_name='Tên')
     gender = models.IntegerField(default=1, choices=GENDER, verbose_name='Giới tính')
     dob = models.DateField(null=True, blank=True, verbose_name='Ngày sinh')
+    place_of_birth = models.DateField(null=True, blank=True, verbose_name='Nơi sinh')
     phone = models.CharField(max_length=100, null=True, blank=True, verbose_name='Số điện thoại')
     email = models.EmailField(max_length=100, unique=True, verbose_name='Email')
+    address = models.CharField(max_length=255, default='', verbose_name='Địa chỉ')
+    identity_number = models.CharField(max_length=15, default='', verbose_name='Số CCCD/CMND')
 
 
     class Meta:

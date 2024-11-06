@@ -14,7 +14,9 @@ class Semester(CommonAbstract):
     semester = models.CharField(max_length=25, default='fall', verbose_name='Học kỳ')
     start_date = models.DateField()
     end_date = models.DateField()
-
+    note = models.TextField(null=True, blank=True, max_length=500, verbose_name='Ghi chú')
+    credit_require = models.IntegerField(verbose_name='Số tín chỉ yêu cầu', default=9)
+    credit_optional = models.IntegerField(verbose_name='Số tín chỉ tự chọn', default=3)
 
     class Meta:
         verbose_name = 'Học kỳ'
