@@ -6,6 +6,10 @@ const LayoutManager = () => {
     const {currentUser, logout} = useContext(AuthContext);
     const location = useLocation();
 
+    const isActive = (path) => {
+        return location.pathname === path ? 'active' : '';
+    };
+
   return (
     <div className='common-layout'>
         <nav className="sidebar">
@@ -16,19 +20,19 @@ const LayoutManager = () => {
                         {currentUser.username} - {currentUser.role}
                     </Link>
                 </li>
-                <li>
-                    <Link>
+                <li className={isActive("/manager")}>
+                    <Link to="/manager">
                         <i className="fa-solid fa-gauge"></i>
                         Dashboard
                     </Link>
                 </li>
-                <li>
-                    <Link>
+                <li className={isActive("/manager/timetables")}>
+                    <Link to="/manager/timetables">
                         <i className="fa-solid fa-calendar-days"></i>
                         Thời khóa biểu
                     </Link>
                 </li>
-                <li>
+                <li className={isActive("/manager/")}>
                     <Link>
                         <i className="fa-solid fa-subscript"></i>
                         Lịch thi

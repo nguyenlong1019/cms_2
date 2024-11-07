@@ -10,6 +10,8 @@ import StaffDashboard from './pages/staff/StaffDashboard';
 import ManagerDashboard from './pages/manager/ManagerDashboard' 
 import LoginRequire from './pages/staff/LoginRequire';
 import LoginRequireManager from './pages/manager/LoginRequireManager';
+import StaffTimeTable from './pages/staff/StaffTimeTable';
+import StaffAttendanceHist from './pages/staff/StaffAttendanceHist';
 
 const router = createBrowserRouter([
   {
@@ -28,11 +30,11 @@ const router = createBrowserRouter([
       },
       {
         path: "timetables",
-        element: <Outlet />,
+        element: <StaffTimeTable />,
       },
       {
         path: "attendance_history",
-        element: <Outlet />,
+        element: <StaffAttendanceHist />,
       },
     ],
   },
@@ -44,6 +46,114 @@ const router = createBrowserRouter([
     children: [
       {
         path: "",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "timetables",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "timetables/add",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "timetables/edit/:Id",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "exam-schedule",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "exam-schedule/add",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "exam-schedule/edit/:Id",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "student-enrollments",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "student-enrollments/add",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "student-enrollments/edit/:Id",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "classroom", // Danh sach lop hoc phan 
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "classroom/add", // Danh sach lop hoc phan 
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "classroom/edit/:Id", // Danh sach lop hoc phan 
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "exam-schedule",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "exam-schedule/add",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "exam-schedule/edit:Id",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "learning-result",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "learning-result/add",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "learning-result/edit/:Id",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "teacher-timetables",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "teacher-timetables/add",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "teacher-timetables/edit/:Id",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "attendance-hist",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "attendance-hist/add",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "attendance-hist/edit/:Id",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "score",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "score/add",
+        element: <ManagerDashboard />,
+      },
+      {
+        path: "score/edit/:Id",
         element: <ManagerDashboard />,
       },
     ],
