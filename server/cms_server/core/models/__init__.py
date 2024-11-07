@@ -7,4 +7,5 @@ from .grades import *
 from .semester import * 
 from .student import * 
 from .subject import * 
-from .timetables import *
+from .timetables import * 
+from .class_schedule import *
