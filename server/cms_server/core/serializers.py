@@ -9,6 +9,7 @@ from core.models.semester import Semester
 from core.models.student import Student 
 from core.models.subject import Subject 
 from core.models.timetables import TimeTables 
+from core.models.class_schedule import ClassSchedule 
 
 
 class AttendanceHistorySerializer(serializers.ModelSerializer):
@@ -68,4 +69,10 @@ class SubjectSerializer(serializers.ModelSerializer):
 class TimeTablesSerializer(serializers.ModelSerializer):
     class Meta:
         model = TimeTables 
+        fields = '__all__'
+
+
+class ClassScheduleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ClassSchedule 
         fields = '__all__'
