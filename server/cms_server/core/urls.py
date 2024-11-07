@@ -10,6 +10,7 @@ from core.views.semester import semester_list, semester_detail
 from core.views.student import student_list, student_detail 
 from core.views.subject import subject_list, subject_detail 
 from core.views.timetables import timetable_list, timetable_detail 
+from core.views.class_schedule import class_schedule_list, class_schedule_detail
 
 
 urlpatterns = [
@@ -36,5 +37,7 @@ urlpatterns = [
     path('api/subject/<pk>', subject_detail, name='subject-detail'),
     path('api/timetable/', timetable_list, name='timetable-list'),
     path('api/timetable/<pk>', timetable_detail, name='timetable-detail'),
+    path('api/class_schedule/', class_schedule_list, name='class-schedule-list'),
+    path('api/class_schedule/<pk>', class_schedule_detail, name='class-schedule-detail'),
 ]
 
