@@ -9,6 +9,7 @@ from core.models.semester import Semester
 from core.models.student import Student 
 from core.models.subject import Subject 
 from core.models.timetables import TimeTables 
+from core.models.class_schedule import ClassSchedule 
 from django.contrib.auth.admin import UserAdmin 
 
 
@@ -54,6 +55,11 @@ class SubjectAdmin(admin.ModelAdmin):
 
 @admin.register(TimeTables)
 class TimeTablesAdmin(admin.ModelAdmin):
+    search_fields = ['id',]
+
+
+@admin.register(ClassSchedule)
+class ClassScheduleAdmin(admin.ModelAdmin):
     search_fields = ['id',]
 
 
