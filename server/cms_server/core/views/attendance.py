@@ -9,7 +9,6 @@ from .auth_middleware import verify_admin, verify_token
 
 @api_view(['GET', 'POST'])
 @verify_token 
-@verify_admin
 @csrf_exempt
 def attendance_list(request):
     """
@@ -30,7 +29,6 @@ def attendance_list(request):
 
 @api_view(['GET', 'PUT', 'PATCH', 'DELETE'])
 @verify_token 
-@verify_admin
 @csrf_exempt
 def attendance_detail(request, pk):
     """

@@ -21,7 +21,7 @@ class Semester(CommonAbstract):
     class Meta:
         verbose_name = 'Học kỳ'
         verbose_name_plural = 'Học kỳ'
-        db_table = 'TKB_HocKy'
+        db_table = 'semester'
 
 
     def __str__(self):

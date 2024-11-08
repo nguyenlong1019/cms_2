@@ -27,4 +27,4 @@ class TimeTables(CommonAbstract):
 
     
     def __str__(self):
-        return f"{self.id} - {self.date}"
+        return f"{self.id} - {self.date_on}"

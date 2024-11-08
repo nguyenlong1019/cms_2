@@ -12,6 +12,14 @@ import LoginRequire from './pages/staff/LoginRequire';
 import LoginRequireManager from './pages/manager/LoginRequireManager';
 import StaffTimeTable from './pages/staff/StaffTimeTable';
 import StaffAttendanceHist from './pages/staff/StaffAttendanceHist';
+import Classroom from './pages/manager/Classroom';
+import ManagerSchedule from './pages/manager/ManagerSchedule';
+import ExamSchedule from './pages/manager/ExamSchedule';
+import SubjectRegister from './pages/manager/SubjectRegister';
+import LearningResult from './pages/manager/LearningResult';
+import ManagerTimeTable from './pages/manager/ManagerTimeTable';
+import ManagerAttendanceHist from './pages/manager/ManagerAttendanceHist';
+import GradeManager from './pages/manager/GradeManager';
 
 const router = createBrowserRouter([
   {
@@ -33,7 +41,7 @@ const router = createBrowserRouter([
         element: <StaffTimeTable />,
       },
       {
-        path: "attendance_history",
+        path: "attendance-history",
         element: <StaffAttendanceHist />,
       },
     ],
@@ -50,111 +58,99 @@ const router = createBrowserRouter([
       },
       {
         path: "timetables",
-        element: <ManagerDashboard />,
+        element: <ManagerSchedule />,
       },
       {
         path: "timetables/add",
-        element: <ManagerDashboard />,
+        element: <ManagerSchedule />,
       },
       {
         path: "timetables/edit/:Id",
-        element: <ManagerDashboard />,
+        element: <ManagerSchedule />,
       },
       {
         path: "exam-schedule",
-        element: <ManagerDashboard />,
+        element: <ExamSchedule />,
       },
       {
         path: "exam-schedule/add",
-        element: <ManagerDashboard />,
+        element: <ExamSchedule />,
       },
       {
         path: "exam-schedule/edit/:Id",
-        element: <ManagerDashboard />,
+        element: <ExamSchedule />,
       },
       {
         path: "student-enrollments",
-        element: <ManagerDashboard />,
+        element: <SubjectRegister />,
       },
       {
         path: "student-enrollments/add",
-        element: <ManagerDashboard />,
+        element: <SubjectRegister />,
       },
       {
         path: "student-enrollments/edit/:Id",
-        element: <ManagerDashboard />,
+        element: <SubjectRegister />,
       },
       {
         path: "classroom", // Danh sach lop hoc phan 
-        element: <ManagerDashboard />,
+        element: <Classroom />,
       },
       {
         path: "classroom/add", // Danh sach lop hoc phan 
-        element: <ManagerDashboard />,
+        element: <Classroom />,
       },
       {
         path: "classroom/edit/:Id", // Danh sach lop hoc phan 
-        element: <ManagerDashboard />,
-      },
-      {
-        path: "exam-schedule",
-        element: <ManagerDashboard />,
-      },
-      {
-        path: "exam-schedule/add",
-        element: <ManagerDashboard />,
-      },
-      {
-        path: "exam-schedule/edit:Id",
-        element: <ManagerDashboard />,
+        element: <Classroom />,
       },
       {
         path: "learning-result",
-        element: <ManagerDashboard />,
+        element: <LearningResult />,
       },
       {
         path: "learning-result/add",
-        element: <ManagerDashboard />,
+        element: <LearningResult />,
       },
       {
         path: "learning-result/edit/:Id",
-        element: <ManagerDashboard />,
+        element: <LearningResult />,
       },
       {
         path: "teacher-timetables",
-        element: <ManagerDashboard />,
+        element: <ManagerTimeTable />,
       },
       {
         path: "teacher-timetables/add",
-        element: <ManagerDashboard />,
+        element: <ManagerTimeTable />,
       },
       {
         path: "teacher-timetables/edit/:Id",
-        element: <ManagerDashboard />,
+        element: <ManagerTimeTable />,
       },
       {
         path: "attendance-hist",
-        element: <ManagerDashboard />,
+        element: <ManagerAttendanceHist />,
       },
       {
         path: "attendance-hist/add",
-        element: <ManagerDashboard />,
+        element: <ManagerAttendanceHist />,
       },
       {
         path: "attendance-hist/edit/:Id",
-        element: <ManagerDashboard />,
+        element: <ManagerAttendanceHist />,
       },
       {
         path: "score",
-        element: <ManagerDashboard />,
+        element: <GradeManager />,
       },
       {
         path: "score/add",
-        element: <ManagerDashboard />,
+        element: <GradeManager />,
       },
       {
         path: "score/edit/:Id",
-        element: <ManagerDashboard />,
+        element: <GradeManager />,
       },
     ],
   },

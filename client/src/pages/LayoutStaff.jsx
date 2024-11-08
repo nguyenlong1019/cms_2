@@ -8,9 +8,10 @@ const LayoutStaff = () => {
     const location = useLocation();
 
     // console.log(currentUser);
-    
-    
 
+    const isActive = (path) => {
+        return location.pathname === path ? 'active' : '';
+    };
 
   return (
     <div className='common-layout'>
@@ -22,20 +23,20 @@ const LayoutStaff = () => {
                         {currentUser.username} - {currentUser.role}
                     </Link>
                 </li>
-                <li className='active'>
-                    <Link>
+                <li className={isActive("/staff")}>
+                    <Link to="/staff">
                         <i className="fa-solid fa-gauge"></i>
                         Dashboard 
                     </Link>
                 </li>
-                <li>
-                    <Link>
+                <li className={isActive("/staff/timetables")}>
+                    <Link to="/staff/timetables">
                         <i className="fa-solid fa-calendar-days"></i>
                         TKB Giảng dạy
                     </Link>
                 </li>
-                <li>
-                    <Link>
+                <li className={isActive("/staff/attendance-history")}>
+                    <Link to="/staff/attendance-history">
                         <i className="fa-solid fa-clock-rotate-left"></i>
                         Lịch sử phòng học 
                     </Link>

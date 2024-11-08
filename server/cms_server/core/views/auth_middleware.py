@@ -28,7 +28,7 @@ def verify_token(view_func):
 def verify_admin(view_func):
     @wraps(view_func)
     def _wrapped_view(request, *args, **kwargs):
-        if request.user.get("role") != "admin":
+        if request.user.get("role") != "manager":
             return JsonResponse({
                 "message": "You do not have permission to perform this action."
             }, status=403)
