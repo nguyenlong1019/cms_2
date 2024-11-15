@@ -27,6 +27,7 @@ const ExamSchedule = () => {
   const [semester, setSemester] = useState('');
   const [courseCode, setCourseCode] = useState('');
   const [selectedExams, setSelectedExams] = useState([]);
+  const [selectAll, setSelectAll] = useState(false);
 
   useEffect(() => {
     const fetchData = async() => {
@@ -60,6 +61,15 @@ const ExamSchedule = () => {
         return [...prev, stt];
       }
     });
+  };
+
+  const handleSelectAll = () => {
+    if (selectAll) {
+      setSelectedExams([]);
+    } else {
+      setSelectedExams(filteredData.map((exam) => exam.stt));
+    }
+    setSelectAll(!selectAll);
   };
 
   const handleDownloadExcel = () => {
@@ -104,186 +114,7 @@ const ExamSchedule = () => {
 
   return (
     <div>
-      {/* <h3 style={{fontSize: '22px'}} className='mb-3'>Lịch thi</h3>
-      <div className="content-form-search mb-3">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Tìm kiếm lịch thi" aria-label="Recipient's username" aria-describedby="button-addon2" />
-          <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i style={{backgroundColor: 'transparent'}} class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-        <input type="date" name="fromDate" id="" />
-        <input type="date" name="toDate" id="" />
-      </div>
-      <div className="button-controls">
-        <div className="btn btn-primary">Tìm kiếm</div>
-        <div className="btn btn-info">Làm mới</div>
-      </div> */}
-
-      {/* <div class="container my-4">
-        <div class="table-responsive">
-          <table class="table table-bordered">
-            <thead class="table-primary">
-              <tr>
-                <th>Mã MH</th>
-                <th>Tên MH</th>
-                <th>Mã lớp</th>
-                <th>STC</th>
-                <th>Thứ</th>
-                <th>Tiết BD</th>
-                <th>ST</th>
-                <th>Phòng</th>
-                <th>Giảng viên</th>
-                <th>Ngày Thi</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>010211</td>
-                <td>Cơ học cơ sở 1</td>
-                <td>68CKF</td>
-                <td>3</td>
-                <td>4</td>
-                <td>1</td>
-                <td>3</td>
-                <td>H3.31</td>
-                <td></td>
-                <td>29-05-2024</td>
-              </tr>
-              <tr>
-                <td>010212</td>
-                <td>Cơ học cơ sở 2</td>
-                <td>68CD1</td>
-                <td>2</td>
-                <td>4</td>
-                <td>1</td>
-                <td>3</td>
-                <td>25.H2</td>
-                <td></td>
-                <td>22-05-2024</td>
-              </tr>
-              <tr>
-                <td>010301</td>
-                <td>Lập trình C++</td>
-                <td>68IT1</td>
-                <td>3</td>
-                <td>2</td>
-                <td>1</td>
-                <td>3</td>
-                <td>H1.101</td>
-                <td>Nguyễn Văn A</td>
-                <td>25-05-2024</td>
-              </tr>
-              <tr>
-                <td>010302</td>
-                <td>Cơ sở dữ liệu</td>
-                <td>68IT2</td>
-                <td>3</td>
-                <td>3</td>
-                <td>2</td>
-                <td>3</td>
-                <td>H1.102</td>
-                <td>Trần Thị B</td>
-                <td>26-05-2024</td>
-              </tr>
-              <tr>
-                <td>010303</td>
-                <td>Kiến trúc máy tính</td>
-                <td>68IT3</td>
-                <td>3</td>
-                <td>4</td>
-                <td>3</td>
-                <td>3</td>
-                <td>H1.103</td>
-                <td>Lê Văn C</td>
-                <td>27-05-2024</td>
-              </tr>
-              <tr>
-                <td>010304</td>
-                <td>Lập trình Web</td>
-                <td>68IT4</td>
-                <td>3</td>
-                <td>5</td>
-                <td>4</td>
-                <td>3</td>
-                <td>H1.104</td>
-                <td>Phạm Thị D</td>
-                <td>28-05-2024</td>
-              </tr>
-              <tr>
-                <td>010305</td>
-                <td>Phân tích thiết kế hệ thống</td>
-                <td>68IT5</td>
-                <td>3</td>
-                <td>6</td>
-                <td>5</td>
-                <td>3</td>
-                <td>H1.105</td>
-                <td>Hoàng Văn E</td>
-                <td>29-05-2024</td>
-              </tr>
-              <tr>
-                <td>010306</td>
-                <td>Lập trình Java</td>
-                <td>68IT6</td>
-                <td>3</td>
-                <td>2</td>
-                <td>1</td>
-                <td>3</td>
-                <td>H1.106</td>
-                <td>Ngô Thị F</td>
-                <td>30-05-2024</td>
-              </tr>
-              <tr>
-                <td>010307</td>
-                <td>Mạng máy tính</td>
-                <td>68IT7</td>
-                <td>3</td>
-                <td>3</td>
-                <td>2</td>
-                <td>3</td>
-                <td>H1.107</td>
-                <td>Đinh Văn G</td>
-                <td>31-05-2024</td>
-              </tr>
-              <tr>
-                <td>010308</td>
-                <td>An toàn thông tin</td>
-                <td>68IT8</td>
-                <td>3</td>
-                <td>4</td>
-                <td>3</td>
-                <td>3</td>
-                <td>H1.108</td>
-                <td>Vũ Thị H</td>
-                <td>01-06-2024</td>
-              </tr>
-              <tr>
-                <td>010309</td>
-                <td>Phát triển phần mềm</td>
-                <td>68IT9</td>
-                <td>3</td>
-                <td>5</td>
-                <td>4</td>
-                <td>3</td>
-                <td>H1.109</td>
-                <td>Nguyễn Văn I</td>
-                <td>02-06-2024</td>
-              </tr>
-              <tr>
-                <td>010310</td>
-                <td>Hệ điều hành</td>
-                <td>68IT10</td>
-                <td>3</td>
-                <td>6</td>
-                <td>5</td>
-                <td>3</td>
-                <td>H1.110</td>
-                <td>Trần Thị J</td>
-                <td>03-06-2024</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div> */}
+      
 
 
 <h3 style={{ fontSize: '22px' }} className='mb-3'>Lịch thi</h3>
@@ -308,24 +139,34 @@ const ExamSchedule = () => {
         <table className="table table-bordered">
           <thead className="table-primary">
             <tr>
+              <th>
+                <input type="checkbox" checked={selectAll} onChange={handleSelectAll} />
+              </th>
               <th>STT</th>
               <th>Mã HP</th>
               <th>Tên HP</th>
+              <th>Tên lớp học phần</th>
               <th>Ngày thi</th>
               <th>Tiết thi</th>
               <th>Phòng thi</th>
+              <th>Thi tập trung</th>
               <th>Chọn</th>
             </tr>
           </thead>
           <tbody>
             {filteredData.map((exam, index) => (
               <tr key={index}>
+                <td></td>
                 <td>{exam.stt}</td>
                 <td>{exam.courseCode}</td>
                 <td>{exam.courseName}</td>
+                <td></td>
                 <td>{exam.examDate}</td>
                 <td>{exam.period}</td>
                 <td>{exam.room}</td>
+                <td>
+                  <input type="checkbox" name="" id="" />
+                </td>
                 <td>
                   <input
                     type="checkbox"
@@ -339,8 +180,12 @@ const ExamSchedule = () => {
         </table>
       </div>
 
-      <button className="btn btn-success mt-3" onClick={handleDownloadExcel}>
+      <button className="btn btn-success mt-3" style={{marginRight: '16px'}} onClick={handleDownloadExcel}>
         Tải xuống Excel
+      </button>
+
+      <button className="btn btn-success mt-3">
+        Tải xuống thi tập trung
       </button>
 
     </div>
