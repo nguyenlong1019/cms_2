@@ -111,6 +111,49 @@ const ExamSchedule = () => {
   };
 
 
+  const handleDownloadExcel2 = () => {
+    const workbook = XLSX.utils.book_new();
+
+    const mockData = [
+      { stt: 1, courseCode: '010211', courseName: 'Cơ học cơ sở 1', examDate: '29-05-2024', period: '1', room: 'H3.31', year: '2023-2024', semester: '1' },
+      { stt: 2, courseCode: '010212', courseName: 'Cơ học cơ sở 2', examDate: '22-05-2024', period: '2', room: '25.H2', year: '2023-2024', semester: '2' },
+      // Thêm nhiều dữ liệu mẫu khác nếu cần
+    ];
+
+    // Sheet 1: Danh sách lớp học phần
+    const classData = mockData.map(item => ({
+      STT: item.stt,
+      'Mã HP': item.courseCode,
+      'Tên HP': item.courseName,
+      'Ngày thi': item.examDate,
+      'Tiết thi': item.period,
+      'Phòng thi': item.room,
+    }));
+    const classSheet = XLSX.utils.json_to_sheet(classData);
+    XLSX.utils.book_append_sheet(workbook, classSheet, 'Danh sách lớp học phần');
+
+    // Sheet 2: Danh sách học phần
+    const courseData = mockData.map(item => ({
+      'Mã HP': item.courseCode,
+      'Tên HP': item.courseName,
+      'Học kỳ': item.semester,
+      'Năm học': item.year,
+    }));
+    const courseSheet = XLSX.utils.json_to_sheet(courseData);
+    XLSX.utils.book_append_sheet(workbook, courseSheet, 'Danh sách học phần');
+
+    // Sheet 3: Sheet1 (thêm dữ liệu khác nếu cần)
+    const otherData = mockData.map(item => ({
+      'Mã học phần': item.courseCode,
+      'Tên môn học': item.courseName,
+      'Ngày bắt đầu': item.examDate,
+    }));
+    const otherSheet = XLSX.utils.json_to_sheet(otherData);
+    XLSX.utils.book_append_sheet(workbook, otherSheet, 'Sheet1');
+
+    // Lưu file Excel
+    XLSX.writeFile(workbook, 'exam_schedule.xlsx');
+  };
 
   return (
     <div>
@@ -184,7 +227,7 @@ const ExamSchedule = () => {
         Tải xuống Excel
       </button>
 
-      <button className="btn btn-success mt-3">
+      <button className="btn btn-success mt-3" onClick={handleDownloadExcel2}>
         Tải xuống thi tập trung
       </button>
 
