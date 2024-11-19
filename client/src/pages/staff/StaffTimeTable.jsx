@@ -19,7 +19,7 @@ const StaffTimeTable = () => {
 
   return (
     <div className=''>
-
+      <div>Timetable</div>
     </div>
   )
 }
