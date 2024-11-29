@@ -137,6 +137,11 @@ const ExamSchedule = () => {
     setShowStudentList(true);
   };
 
+  const handleCloseStudentList = () => {
+    setShowStudentList(false);
+    setSelectedCourse(null);
+  };
+
 
   const handleDownloadExcel2 = () => {
     const workbook = XLSX.utils.book_new();
