@@ -28,6 +28,9 @@ const ExamSchedule = () => {
   const [courseCode, setCourseCode] = useState('');
   const [selectedExams, setSelectedExams] = useState([]);
   const [selectAll, setSelectAll] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState(null);
+  const [showStudentList, setShowStudentList] = useState(false);
+
 
   useEffect(() => {
     const fetchData = async() => {
@@ -110,6 +113,30 @@ const ExamSchedule = () => {
     XLSX.writeFile(workbook, 'exam_schedule_with_students.xlsx');
   };
 
+  const studentDataByCourseCode = {
+    '010211': Array.from({ length: 25 }, (_, index) => ({
+      stt: index + 1,
+      studentId: `SV${index + 1}`,
+      studentName: `Nguyễn Văn ${String.fromCharCode(65 + index % 26)}`,
+      courseCode: '010211',
+    })),
+    '010212': Array.from({ length: 25 }, (_, index) => ({
+      stt: index + 1,
+      studentId: `SV${index + 1}`,
+      studentName: `Trần Thị ${String.fromCharCode(65 + index % 26)}`,
+      courseCode: '010212',
+    })),
+    // Add more mock data for other course codes...
+  };
+
+  const handleShowStudentList = (courseCode) => {
+    setSelectedCourse({
+      courseCode,
+      students: studentDataByCourseCode[courseCode] || [],
+    });
+    setShowStudentList(true);
+  };
+
 
 
   return (
@@ -158,7 +185,14 @@ const ExamSchedule = () => {
               <tr key={index}>
                 <td></td>
                 <td>{exam.stt}</td>
-                <td>{exam.courseCode}</td>
+                <td>
+                  <button
+                    className="btn btn-link"
+                    onClick={() => handleShowStudentList(exam.courseCode)}
+                  >
+                    {exam.courseCode}
+                  </button>
+                </td>
                 <td>{exam.courseName}</td>
                 <td></td>
                 <td>{exam.examDate}</td>
@@ -187,6 +221,46 @@ const ExamSchedule = () => {
       <button className="btn btn-success mt-3">
         Tải xuống thi tập trung
       </button>
+
+
+      {/* Modal for showing student list */}
+      {showStudentList && selectedCourse && (
+        <div className="modal show d-block" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>
+          <div className="modal-dialog modal-lg">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title">Danh sách sinh viên - Mã HP: {selectedCourse.courseCode}</h5>
+                <button type="button" className="btn-close" onClick={handleCloseStudentList}></button>
+              </div>
+              <div className="modal-body">
+                <table className="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>STT</th>
+                      <th>Mã SV</th>
+                      <th>Tên SV</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {selectedCourse.students.map((student) => (
+                      <tr key={student.stt}>
+                        <td>{student.stt}</td>
+                        <td>{student.studentId}</td>
+                        <td>{student.studentName}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div className="modal-footer">
+                <button className="btn btn-secondary" onClick={handleCloseStudentList}>
+                  Đóng
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   )
